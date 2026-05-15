@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="50Projects.Client/50Projects.Client.csproj" />
+  <Project Path="50Projects/50Projects.csproj" />
+</Solution>

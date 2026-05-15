@@ -1,0 +1,15 @@
+﻿@page "/progress-steps"
+
+<h3>Progress Steps</h3>
+
+<div class="my-container">
+	<div class="progress-container">
+		<div class="progress" style="width:@ProgressWidth"></div>
+		@for (var i = 1; i <= TotalSteps; i++)
+		{
+			<div class="circle @(i <= currentActive ? "active" : "")">@i</div>
+		}
+	</div>
+	<button class="my-btn" id="prev" @onclick="OnPreviousClicked" disabled="@(currentActive == 1)">Prev</button>
+	<button class="my-btn" id="next" @onclick="OnNextClicked" disabled="@(currentActive == TotalSteps)">Next</button>
+</div>

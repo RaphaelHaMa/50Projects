@@ -1,0 +1,16 @@
+﻿@page "/expanding-cards"
+
+<PageTitle>Expanding Cards</PageTitle>
+<h3>Expanding Cards</h3>
+<div class="my-container">
+    @foreach (var (id, title, image) in GetPanels())
+    {
+        <div class="panel @(IsActive(id) ? "active" : "")"
+             style="background-image: url('@image');"
+             @onclick="() => OnPanelClick(id)">
+            <h3>@title</h3>
+        </div>
+    }
+</div>
+
+
