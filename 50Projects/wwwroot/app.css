@@ -9,9 +9,8 @@
     box-sizing: border-box;
 }
 
-content {
-    /*font-family: 'Roboto', sans-serif;*/
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+.content {    
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,10 +32,6 @@ a, .btn-link {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
-}
-
-.content {
-    padding-top: 1.1rem;
 }
 
 h1:focus {

@@ -1,0 +1,30 @@
+﻿@page "/hidden-search"
+@layout HiddenSearchLayout
+
+<PageTitle>Hidden Search</PageTitle>
+
+<div class="search @(IsSearchActive ? "active" : "")">
+    <input @ref="searchInput" type="text" class="input" placeholder="Search..." />
+    <button class="my-btn" @onclick="ToggleSearch"><i class="fas fa-search"></i></button>
+</div>
+
+@code {
+    private bool IsSearchActive = false;
+    private bool _shouldFocus;
+    private ElementReference searchInput;
+
+    private void ToggleSearch()
+    {
+        IsSearchActive = !IsSearchActive;
+        _shouldFocus = IsSearchActive;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (_shouldFocus)
+        {
+            _shouldFocus = false;
+            await searchInput.FocusAsync();
+        }
+    }
+}
