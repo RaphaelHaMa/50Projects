@@ -15,7 +15,7 @@ env:
 
 defaults:
   run:
-    working-directory: ${{ env.WORKING_DIRECTORY }}
+    working-directory: 50Projects
 
 jobs:
   build:
