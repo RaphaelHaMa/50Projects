@@ -10,6 +10,8 @@
 			<div class="circle @(i <= currentActive ? "active" : "")">@i</div>
 		}
 	</div>
-	<button class="my-btn" id="prev" @onclick="OnPreviousClicked" disabled="@(currentActive == 1)">Prev</button>
-	<button class="my-btn" id="next" @onclick="OnNextClicked" disabled="@(currentActive == TotalSteps)">Next</button>
+	<div class="button-container">
+		<button class="my-btn" id="prev" @onclick="OnPreviousClicked" disabled="@(currentActive == 1)">Prev</button>
+		<button class="my-btn" id="next" @onclick="OnNextClicked" disabled="@(currentActive == TotalSteps)">Next</button>
+	</div>
 </div>

@@ -21,6 +21,10 @@ content {
     margin: 0;
 }
 
+h3 {
+    text-align: center;
+}
+
 a, .btn-link {
     color: #006bb7;
 }
