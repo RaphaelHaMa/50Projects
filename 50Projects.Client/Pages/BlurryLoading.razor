@@ -1,0 +1,44 @@
+﻿@page "/blurry-loading"
+@using System.Globalization
+
+<PageTitle>Blurry Loading</PageTitle>
+
+<section class="bg" style="filter: blur(@(BlurValue)px);"></section>
+<div class="loading-text" style="opacity: @LoadingOpacity">@_load%</div>
+
+@code {
+    private int _load = 0;
+
+    private string LoadingOpacity = "1";
+    private string BlurValue = "blur(30px)";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await StartBlurring();
+    }
+
+    // Implement a function which executes Blurring() every 30ms until _load reaches 100
+    private async Task StartBlurring()
+    {
+        while (_load < 100)
+        {
+            Blurring();
+            await Task.Delay(30);
+        }
+    }
+
+    private void Blurring()
+    {
+        _load++;
+
+        LoadingOpacity = Scale(_load, 0, 100, 1, 0).ToString(CultureInfo.InvariantCulture);
+        BlurValue = Scale(_load, 0, 100, 30, 0).ToString(CultureInfo.InvariantCulture);
+        
+        StateHasChanged();
+    }
+
+    private double Scale(double num, double in_min, double in_max, double out_min, double out_max)
+    {
+        return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+    }
+}
